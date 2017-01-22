@@ -30,6 +30,9 @@ class ScmUtils {
                 git {
                     remote {
                         url(parsed_url)
+                        if (repo.credentials) {
+                            credentials(repo.credentials)
+                        }
                     }
                     if (use_versions && version != null) {
                         branch "*/tags/$version"
